@@ -1,0 +1,18 @@
+[user]
+	email = maxime@patate.dev
+	name = ALittlePatate
+	signingkey = 3160243661FE9E9D
+[merge]
+	conflictStyle = diff3
+[magit]
+	hideCampaign = true
+[alias]
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[commit]
+	gpgsign = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

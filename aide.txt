@@ -1,0 +1,1 @@
+installer sof-firmware si pulseaudio marche pas
