@@ -11,6 +11,7 @@
 
 set $mod Mod4
 
+exec xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
 exec_always feh --bg-scale ~/dotfiles/bg.png
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -179,10 +180,10 @@ bindsym $mod+Shift+p exec "~/.screenlayout/portable-setup.sh"
 bindsym $mod+Shift+w exec "~/bin/map-wacom"
 bindsym $mod+b exec "boomer"
 bindsym $mod+Shift+n exec "i3lock --image ~/dotfiles/bg.png"
+bindsym $mod+Shift+b exec "quentin_saver"
 bindsym --release $mod+Shift+l exec "slock"
 
 focus_follows_mouse no
 
 hide_edge_borders both
 
-exec xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
