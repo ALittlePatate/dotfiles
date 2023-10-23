@@ -37,9 +37,11 @@
 
 (use-package lsp-mode
   :init
+  :config
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          (c-mode . lsp))
   :commands lsp)
+
 
 ;; company
 (unless (package-installed-p 'company)
@@ -57,6 +59,18 @@
   (company-idle-delay 0.0))
 
 (setq neo-theme (if (display-graphic-p) 'icons))
+
+;; emacs gdb
+(fmakunbound 'gdb)
+(fmakunbound 'gdb-enable-debug)
+
+(unless (package-installed-p 'gdb-mi)
+	(package-install 'gdb-mi))
+
+(use-package gdb-mi
+  :init
+  (fmakunbound 'gdb)
+  (fmakunbound 'gdb-enable-debug))
 
 ;; neotree
 (unless (package-installed-p 'neotree)
