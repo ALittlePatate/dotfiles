@@ -1,6 +1,8 @@
 .Xresources|symlink|
 .tmux.conf|symlink|
 .vimrc|symlink|
+dunstrc|symlink|.config/dunst
+kitty.conf|symlink|.config/kitty
 i3|symlink|.config
 .screenlayout|symlink|
 .ghci|symlink|

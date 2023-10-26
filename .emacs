@@ -23,6 +23,7 @@
 (show-paren-mode 1)
 (electric-pair-mode 1)
 (global-display-line-numbers-mode 1)
+(global-font-lock-mode 0)
 (setq display-line-numbers-type 'relative)
 (set-face-attribute 'default nil :height 200)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -30,47 +31,7 @@
 (unless (package-installed-p 'gruvbox-theme)
   (package-install 'gruvbox-theme))
 
- (load-theme 'gruvbox-dark-soft t)
-
-(unless (package-installed-p 'lsp-mode)
-  (package-install 'lsp-mode))
-
-(use-package lsp-mode
-  :init
-  :config
-  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (c-mode . lsp))
-  :commands lsp)
-
-
-;; company
-(unless (package-installed-p 'company)
-	(package-install 'company))
-
-(use-package company
-  :after lsp-mode
-  :hook (prog-mode . company-mode)
-  :bind (:map company-active-map
-         ("<tab>" . company-complete-selection))
-        (:map lsp-mode-map
-         ("<tab>" . company-indent-or-complete-common))
-  :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0.0))
-
-(setq neo-theme (if (display-graphic-p) 'icons))
-
-;; emacs gdb
-(fmakunbound 'gdb)
-(fmakunbound 'gdb-enable-debug)
-
-(unless (package-installed-p 'gdb-mi)
-	(package-install 'gdb-mi))
-
-(use-package gdb-mi
-  :init
-  (fmakunbound 'gdb)
-  (fmakunbound 'gdb-enable-debug))
+(load-theme 'gruvbox-dark-soft t)
 
 ;; neotree
 (unless (package-installed-p 'neotree)
@@ -103,16 +64,3 @@
 (load "site-start.d/epitech-init.el")
 
 (setq-default indent-tabs-mode nil)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(company simpleclip rust-mode org-cliplink neotree magit gruber-darker-theme go-mode evil dash-functional all-the-icons)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

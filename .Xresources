@@ -3,61 +3,43 @@ Xft.antialias:  1
 Xft.hinting:    1
 Xft.hintstyle:  hintmedium
 
-URxvt.termName: rxvt
-URxvt*depth: 32
-URxvt.transparent: false 
-URxvt.font: xft:mono:size=22
-URxvt.scrollBar: false
-URxvt.iconFile: .rexim/icons/terminal-icon.png
-URxvt*lineSpace: -1
-URxvt*letterSpace: -1
+*termName: rxvt
+*depth: 32
+*transparent: false 
+*font: xft:mono:size=22
+*scrollBar: false
+*iconFile: .rexim/icons/terminal-icon.png
+*lineSpace: -1
+*letterSpace: -1
 
-! Gruber-Darker
-URxvt*foreground: #e4e4ef
-URxvt*background: #181818
-URxvt*color0:  #2E3436
-URxvt*color1:  #a40000
-URxvt*color2:  #4E9A06
-URxvt*color3:  #C4A000
-URxvt*color4:  #3465A4
-URxvt*color5:  #75507B
-URxvt*color6:  #ce5c00
-URxvt*color7:  #babdb9
-URxvt*color8:  #555753
-URxvt*color9:  #EF2929
-URxvt*color10: #8AE234
-URxvt*color11: #FCE94F
-URxvt*color12: #729FCF
-URxvt*color13: #AD7FA8
-URxvt*color14: #fcaf3e
-URxvt*color15: #EEEEEC
-
-! ! Zenburn
-! URxvt*background: #3f3f3f
-! URxvt*foreground: #dcdccc
-! URxvt*cursorColor: #aaaaaa
-! ! URxvt*colorUL: #366060
-! ! URxvt*underlineColor: #dfaf8f
-! URxvt*color0: #3f3f3f
-! URxvt*color1: #cc9393
-! URxvt*color2: #7f9f7f
-! URxvt*color3: #d0bf8f
-! URxvt*color4: #6ca0a3
-! URxvt*color5: #dc8cc3
-! URxvt*color6: #93e0e3
-! URxvt*color7: #dcdccc
-! URxvt*color8: #989890
-! URxvt*color9: #dca3a3
-! URxvt*color10: #bfebbf
-! URxvt*color11: #f0dfaf
-! URxvt*color12: #8cd0d3
-! URxvt*color13: #dc8cc3
-! URxvt*color14: #93e0e3
-! URxvt*color15: #ffffff
-
-! Adwaita
-! URxvt*background: #EDEDED
-! URxvt*foreground: #2E3436
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
 URxvt.perl-ext-common:  resize-font,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
