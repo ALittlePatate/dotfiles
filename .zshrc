@@ -114,3 +114,5 @@ alias ll='eza -l'
 alias lla='eza -la'
 alias ls='eza'
 alias lt='eza --tree'
+
+neofetch
