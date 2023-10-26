@@ -3,6 +3,7 @@
 .vimrc|symlink|
 dunstrc|symlink|.config/dunst
 kitty.conf|symlink|.config/kitty
+.zshrc|symlink|
 i3|symlink|.config
 .screenlayout|symlink|
 .ghci|symlink|
