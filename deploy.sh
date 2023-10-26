@@ -5,6 +5,9 @@ SCRIPT_DIR="$( cd "$( dirname "$BASH_SOURCE[0]" )" && pwd )"
 #deploy auto complete for zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions 
 
+#caching the background
+betterlockscreen -u bg.png
+
 symlinkFile() {
     filename="$SCRIPT_DIR/$1"
     destination="$HOME/$2/$1"

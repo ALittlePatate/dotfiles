@@ -173,7 +173,7 @@ bindsym $mod+Shift+h exec "~/.screenlayout/home-setup.sh"
 bindsym $mod+Shift+p exec "~/.screenlayout/portable-setup.sh"
 bindsym $mod+Shift+w exec "~/bin/map-wacom"
 bindsym $mod+b exec "boomer"
-bindsym $mod+Shift+n exec "i3lock --image ~/dotfiles/bg.png"
+bindsym $mod+Shift+n exec "betterlockscreen --lock"
 bindsym $mod+Shift+b exec "quentin_saver"
 bindsym --release $mod+Shift+l exec "slock"
 
