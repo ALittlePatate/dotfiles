@@ -1,12 +1,10 @@
-Xft.dpi:    96
-Xft.antialias:  1
-Xft.hinting:    1
-Xft.hintstyle:  hintmedium
+Xft.dpi: 96
+Xft.antialias: 1
+Xft.hinting: 1
+Xft.hintstyle: hintmedium 
 
-*termName: rxvt
 *depth: 32
 *transparent: false 
-*font: xft:mono:size=22
 *scrollBar: false
 *iconFile: .rexim/icons/terminal-icon.png
 *lineSpace: -1
@@ -40,13 +38,4 @@ Xft.hintstyle:  hintmedium
 ! LightGrey + White
 *color7:  #a89984
 *color15: #ebdbb2
-
-URxvt.perl-ext-common:  resize-font,matcher
-URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.matcher.button: 1
-
-URxvt.keysym.C-parenright:  resize-font:smaller
-URxvt.keysym.C-equal:  resize-font:bigger
-URxvt.keysym.C-agrave:      resize-font:reset
-
 
