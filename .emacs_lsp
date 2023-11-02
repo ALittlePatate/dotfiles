@@ -32,6 +32,9 @@
 
  (load-theme 'gruvbox-dark-soft t)
 
+(setq-default display-fill-column-indicator-column 79)  ; 80 column indicator - Emacs columns are 0-based...
+(global-display-fill-column-indicator-mode 1)
+
 (unless (package-installed-p 'lsp-mode)
   (package-install 'lsp-mode))
 
@@ -42,6 +45,15 @@
          (c-mode . lsp))
   :commands lsp)
 
+(require 'lsp-mode)
+(lsp-register-client
+  (make-lsp-client :new-connection (lsp-stdio-connection '("/home/maxime/Downloads/ecsls/venv/bin/ecsls_run"))
+                   :major-modes '(c-mode c++-mode makefile-mode)
+                   :server-id 'ecsls))
+
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
+(add-hook 'makefile-mode-hook 'lsp)
 
 ;; company
 (unless (package-installed-p 'company)
@@ -95,6 +107,16 @@
 ;; Enable Evil
 (require 'evil)
 (evil-mode 1)
+
+(defun my-untabify-all-lines ()
+  "Select all lines in the buffer and run 'untabify' on them."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (push-mark (point-max) t t)
+    (untabify (region-beginning) (region-end))))
+
+(global-set-key (kbd "C-c C-x") 'my-untabify-all-lines)
 
 ;;    
 ;; Epitech configuration

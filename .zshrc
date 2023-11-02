@@ -4,6 +4,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=$HOME/my_scripts:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -116,3 +117,6 @@ alias ls='eza'
 alias lt='eza --tree'
 
 neofetch
+
+# Created by `pipx` on 2023-11-02 13:38:50
+export PATH="$PATH:/home/maxime/.local/bin"
