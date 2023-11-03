@@ -1,6 +1,7 @@
 .Xresources|symlink|
 .tmux.conf|symlink|
 .vimrc|symlink|
+nvim|symlink|.config
 dunstrc|symlink|.config/dunst
 kitty.conf|symlink|.config/kitty
 neofetch/config.conf|symlink|.config

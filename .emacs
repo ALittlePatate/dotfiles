@@ -23,6 +23,7 @@
 (show-paren-mode 1)
 (electric-pair-mode 1)
 (global-display-line-numbers-mode 1)
+(global-font-lock-mode 0)
 (setq display-line-numbers-type 'relative)
 (set-face-attribute 'default nil :height 200)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
