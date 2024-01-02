@@ -23,6 +23,7 @@
 (show-paren-mode 1)
 (electric-pair-mode 1)
 (global-display-line-numbers-mode 1)
+(global-font-lock-mode 0)
 (setq display-line-numbers-type 'relative)
 (set-face-attribute 'default nil :height 200)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -35,63 +36,7 @@
 (setq-default display-fill-column-indicator-column 79)  ; 80 column indicator - Emacs columns are 0-based...
 (global-display-fill-column-indicator-mode 1)
 
-(unless (package-installed-p 'lsp-mode)
-  (package-install 'lsp-mode))
-
-(use-package lsp-mode
-  :init
-  :config
-  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (c-mode . lsp))
-  :commands lsp)
-
-(require 'lsp-mode)
-(lsp-register-client
-  (make-lsp-client :new-connection (lsp-stdio-connection '("/home/maxime/Downloads/ecsls/venv/bin/ecsls_run"))
-                   :major-modes '(c-mode c++-mode makefile-mode)
-                   :server-id 'ecsls))
-
-(add-hook 'c-mode-hook 'lsp)
-(add-hook 'c++-mode-hook 'lsp)
-(add-hook 'makefile-mode-hook 'lsp)
-
-;; company
-(unless (package-installed-p 'company)
-	(package-install 'company))
-
-(use-package company
-  :after lsp-mode
-  :hook (prog-mode . company-mode)
-  :bind (:map company-active-map
-         ("<tab>" . company-complete-selection))
-        (:map lsp-mode-map
-         ("<tab>" . company-indent-or-complete-common))
-  :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0.0))
-
 (setq neo-theme (if (display-graphic-p) 'icons))
-
-;; emacs gdb
-(fmakunbound 'gdb)
-(fmakunbound 'gdb-enable-debug)
-
-(unless (package-installed-p 'gdb-mi)
-	(package-install 'gdb-mi))
-
-(use-package gdb-mi
-  :init
-  (fmakunbound 'gdb)
-  (fmakunbound 'gdb-enable-debug))
-
-;; neotree
-(unless (package-installed-p 'neotree)
-	(package-install 'neotree)
-	(package-install 'all-the-icons))
-
-(setq neo-theme (if (display-graphic-p) 'icons))
-(setq neo-smart-open t)
-(global-set-key [f8] 'neotree-toggle)
 
 ;; Simpleclip
 (unless (package-installed-p 'simpleclip)
