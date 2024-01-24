@@ -45,6 +45,7 @@
   :config
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          (c-mode . lsp)
+         (c++-mode . lsp)
          (python-mode . lsp))
   :commands lsp)
 
@@ -64,6 +65,12 @@
   (company-idle-delay 0.0))
 
 (setq neo-theme (if (display-graphic-p) 'icons))
+
+;; Use keybindings
+(use-package grip-mode
+  :ensure t
+  :bind (:map markdown-mode-command-map
+         ("g" . grip-mode)))
 
 ;; emacs gdb
 (fmakunbound 'gdb)
