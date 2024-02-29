@@ -1,6 +1,7 @@
 (require 'package)
 (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -10,10 +11,16 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
-(load "~/.emacs.rc/rc.el")
-(load "~/.emacs.rc/misc-rc.el")
-(load "~/.emacs.rc/org-mode-rc.el")
-(load "~/.emacs.rc/autocommit-rc.el")
+(unless (package-installed-p 'benchmark-init)
+  (package-refresh-contents)
+  (package-install 'benchmark-init))
+
+(require 'benchmark-init)
+;; To disable collection of benchmark data after init is done.
+(add-hook 'after-init-hook 'benchmark-init/deactivate)
+
+;; shell
+(global-set-key (kbd "C-c RET") (lambda () (interactive) (ansi-term "/bin/zsh")))
 
 ;; Look
 (tool-bar-mode 0)
@@ -22,21 +29,37 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 (electric-pair-mode 1)
-(global-display-line-numbers-mode 1)
 (global-font-lock-mode 0)
+(global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
 (set-face-attribute 'default nil :height 200)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+;; Auto-refresh dired on file change
+(add-hook 'dired-mode-hook 'auto-revert-mode)
 
 (unless (package-installed-p 'gruvbox-theme)
   (package-install 'gruvbox-theme))
-
- (load-theme 'gruvbox-dark-soft t)
+(load-theme 'gruvbox-dark-soft t)
 
 (setq-default display-fill-column-indicator-column 79)  ; 80 column indicator - Emacs columns are 0-based...
 (global-display-fill-column-indicator-mode 1)
 
 (setq neo-theme (if (display-graphic-p) 'icons))
+
+;; Use keybindings
+(use-package grip-mode
+  :ensure t
+  :bind (:map markdown-mode-command-map
+         ("g" . grip-mode)))
+
+;; neotree
+(unless (package-installed-p 'neotree)
+	(package-install 'neotree)
+	(package-install 'all-the-icons))
+
+(setq neo-theme (if (display-graphic-p) 'icons))
+(setq neo-smart-open t)
+(global-set-key [f8] 'neotree-toggle)
 
 ;; Simpleclip
 (unless (package-installed-p 'simpleclip)
@@ -52,6 +75,10 @@
 ;; Enable Evil
 (require 'evil)
 (evil-mode 1)
+
+;; exwm
+(unless (package-installed-p 'exwm)
+  (package-install 'exwm))
 
 (defun my-untabify-all-lines ()
   "Select all lines in the buffer and run 'untabify' on them."
@@ -75,8 +102,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(company simpleclip rust-mode org-cliplink neotree magit gruber-darker-theme go-mode evil dash-functional all-the-icons)))
+   '(benchmark-init company simpleclip rust-mode org-cliplink neotree magit gruber-darker-theme go-mode evil dash-functional all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
