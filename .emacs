@@ -4,6 +4,7 @@
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 (package-initialize)
 
+(setq make-backup-files nil)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
