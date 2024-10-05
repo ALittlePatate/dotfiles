@@ -4,6 +4,7 @@
 nvim|symlink|.config
 dunstrc|symlink|.config/dunst
 kitty.conf|symlink|.config/kitty
+picom.conf|symlink|.config/picom
 neofetch/config.conf|symlink|.config
 .zshrc|symlink|
 i3|symlink|.config

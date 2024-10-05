@@ -14,8 +14,9 @@ set $mod Mod4
 exec xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
 exec_always feh --bg-scale ~/dotfiles/bg.png
 exec --no-startup-id dunst
+exec --no-startup-id blueman-applet 
 
-exec --no-startup-id picom -D 0
+exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
