@@ -66,8 +66,13 @@
   (lsp-rust-analyzer-display-reborrow-hints nil)
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          (c-mode . lsp)
+         (c++-mode . lsp)
+         (haskell-mode . lsp)
          (python-mode . lsp))
   :commands lsp)
+
+(add-hook 'haskell-mode-hook #'lsp)
+(add-hook 'haskell-literate-mode-hook #'lsp)
 
 ;;https://robert.kra.hn/posts/rust-emacs-setup/
 (use-package rustic
@@ -179,7 +184,7 @@
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(benchmark-init company simpleclip rust-mode org-cliplink neotree magit gruber-darker-theme go-mode evil dash-functional all-the-icons)))
+   '(lsp-haskell benchmark-init company simpleclip rust-mode org-cliplink neotree magit gruber-darker-theme go-mode evil dash-functional all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
