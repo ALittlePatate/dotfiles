@@ -32,6 +32,7 @@
 (electric-pair-mode 1)
 (global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
+(setq inhibit-startup-screen t)
 (set-face-attribute 'default nil :height 200)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 ;; Auto-refresh dired on file change
@@ -153,11 +154,11 @@
 (evil-mode 1)
 
 ;; exwm
-(unless (package-installed-p 'exwm)
-  (package-install 'exwm))
+;;(unless (package-installed-p 'exwm)
+;;  (package-install 'exwm))
 
-(require 'exwm)
-(require 'exwm-config)
+;;(require 'exwm)
+;;(require 'exwm-config)
 ;;(exwm-config-example)
 
 (defun my-untabify-all-lines ()

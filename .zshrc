@@ -5,6 +5,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$HOME/my_scripts:$PATH
+export PATH=$HOME/.ghcup/bin:$PATH
 export PATH=$HOME/Documents/pasm/build:$PATH
 export PSPDEV=/usr/local/pspdev
 export PATH=$PATH:$PSPDEV/bin
