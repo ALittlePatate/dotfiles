@@ -8,6 +8,7 @@ picom.conf|symlink|.config/picom
 neofetch/config.conf|symlink|.config
 .zshrc|symlink|
 i3|symlink|.config
+sway|symlink|.config
 .screenlayout|symlink|
 .ghci|symlink|
 .i3status.conf|symlink|

@@ -9,7 +9,14 @@ export PATH=$HOME/.ghcup/bin:$PATH
 export PATH=$HOME/Documents/pasm/build:$PATH
 export PSPDEV=/usr/local/pspdev
 export PATH=$PATH:$PSPDEV/bin
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+export QT_QPA_PLATFORM=wayland
+export XDG_CURRENT_SESSION_TYPE=wayland
+export GDK_BACKEND="wayland,x11"
+export MOZ_ENABLE_WAYLAND=1
 export LD_LIBRARY_PATH=~/.local/share/Steam/steamapps/common/Counter-Strike\ Source/bin
+alias e="emacs . 2>/dev/null &"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
