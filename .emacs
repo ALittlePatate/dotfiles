@@ -45,6 +45,14 @@
 (setq-default display-fill-column-indicator-column 79)  ; 80 column indicator - Emacs columns are 0-based...
 (global-display-fill-column-indicator-mode 1)
 
+(defun my-text-mode-setup ()
+  (visual-line-mode 1)
+  (setq fill-column 74)
+  (auto-fill-mode 1))
+
+(add-hook 'text-mode-hook 'my-text-mode-setup)
+(add-to-list 'auto-mode-alist '("\\.txt\\'" . text-mode))
+
 (unless (package-installed-p 'lsp-mode)
   (package-install 'lsp-mode))
 
