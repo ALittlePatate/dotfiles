@@ -14,6 +14,8 @@ exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec --no-startup-id dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 set $mod Mod4
 
+output eDP-1 pos 0 0
+
 exec xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
 
 input "type:keyboard" {
